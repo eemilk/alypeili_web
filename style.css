@@ -2,17 +2,26 @@ body {
     background-color: #101010;
     color: #ffffff;
     font-size: 36pt;
-    font-family: monospace;
-  }
-h1 {
-    color: #ffffff;
-  }
-nav a {
-    color: #ffffff;
-  }
-footer {
-    color: #ffffff;
+    font-family: "Lucida Console", Monaco, monospace;
   }
 p {
-    padding: 18px;
+    padding: 16px;
+  }
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.row {
+    display: flex;
+  }
+  
+.column {
+    flex: 50%;
   }
