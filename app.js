@@ -67,3 +67,11 @@ function displayWeather(){
     descElement.innerHTML = weather.description;
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }
+
+// TIME AND DATE SETUP
+var today = new Date();
+var date = today.getFullYear() + ' ' + (today.getMonth() + 1) + ' ' + today.getDate();
+var time = today.getHours() + " " + today.getMinutes();
+var dateTime = date + ' ' + time;
+document.getElementById('date').innerHTML = date;
+document.getElementById('time').innerHTML = time;

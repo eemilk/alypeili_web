@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color: #101010;
+    background-color: #000000;
     color: #ffffff;
     font-size: 36pt;
     font-family: 'major_mono_displayregular';
@@ -54,8 +54,7 @@ body {
 .temperature-value p{
     padding: 0;
     margin: 0;
-    color: #fffffff;
-    font-size: 4em;
+    color: #ffffff;
     text-align: center;
     cursor: pointer;
 }
@@ -66,7 +65,6 @@ body {
 
 .temperature-value span{
     color: #293251;
-    font-size: 0.5em;
 }
 
 .temperature-description{
@@ -76,9 +74,8 @@ body {
 .temperature-description p{
     padding: 8px;
     margin: 0;
-    color: #293251;
+    color: #ffffff;
     text-align: center;
-    font-size: 1.2em;
 }
 
 .location{
@@ -88,8 +85,7 @@ body {
 .location p{
     margin: 0;
     padding: 0;
-    color: #293251;
+    color: #ffffff;
     text-align: center;
-    font-size: 0.8em;
 }
 
