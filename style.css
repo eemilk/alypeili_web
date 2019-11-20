@@ -64,7 +64,7 @@ body {
 }
 
 .temperature-value span{
-    color: #293251;
+    color: #ffffff;
 }
 
 .temperature-description{
@@ -76,6 +76,7 @@ body {
     margin: 0;
     color: #ffffff;
     text-align: center;
+    font-size: 26pt;
 }
 
 .location{
@@ -87,5 +88,9 @@ body {
     padding: 0;
     color: #ffffff;
     text-align: center;
+}
+
+.small-font {
+  font-size: 26pt;
 }
 

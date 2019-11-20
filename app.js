@@ -3,6 +3,7 @@ const locationElement = document.querySelector(".location p");
 const iconElement = document.querySelector(".weather-icon");
 const descElement = document.querySelector(".temperature-description p");
 
+
 // APP CONSTANTS AND VARS
 const KELVIN = 273;
 //API KEY
@@ -52,8 +53,8 @@ function getWeather(latitude, longitude){
             weather.temperature.value = Math.floor(data.main.temp - KELVIN);
             weather.description = data.weather[0].description;
             weather.iconId = data.weather[0].icon;
-            weather.city = data.name;
-            weather.country = data.sys.country;
+            weather.city = data.name.toLowerCase();
+            weather.country = data.sys.country.toLowerCase();
         })
         .then(function(){
             displayWeather();
@@ -63,15 +64,15 @@ function getWeather(latitude, longitude){
 // DISPLAY WEATHER TO UI
 function displayWeather(){
     iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
-    tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+    tempElement.innerHTML = `${weather.temperature.value}°<span>c</span>`;
     descElement.innerHTML = weather.description;
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }
 
 // TIME AND DATE SETUP
 var today = new Date();
-var date = today.getFullYear() + ' ' + (today.getMonth() + 1) + ' ' + today.getDate();
-var time = today.getHours() + " " + today.getMinutes();
+var date = today.getFullYear() + '|' + (today.getMonth() + 1) + '|' + today.getDate();
+var time = today.getHours() + "|" + today.getMinutes();
 var dateTime = date + ' ' + time;
 document.getElementById('date').innerHTML = date;
 document.getElementById('time').innerHTML = time;
