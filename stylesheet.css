@@ -17,9 +17,6 @@ body {
     font-size: 36pt;
     font-family: 'major_mono_displayregular';
   }
-p {
-    padding: 16px;
-  }
 .column {
     float: left;
     width: 33%;
