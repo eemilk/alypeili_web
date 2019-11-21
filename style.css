@@ -48,7 +48,7 @@ body {
 
 .temperature-value{
     width: 300px;
-    height:60px;
+    height:30px;
 }
 
 .temperature-value p{
@@ -94,3 +94,17 @@ body {
   font-size: 26pt;
 }
 
+.fore-temperature-value p{
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.fore-temperature-value{
+
+}
+
+.fore-weather-icon {
+
+}

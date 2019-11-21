@@ -3,6 +3,9 @@ const locationElement = document.querySelector(".location p");
 const iconElement = document.querySelector(".weather-icon");
 const descElement = document.querySelector(".temperature-description p");
 
+const foreTempElement = document.querySelector(".fore-temperature-value p");
+const foreIconElement = document.querySelector(".fore-weather-icon");
+
 
 // APP CONSTANTS AND VARS
 const KELVIN = 273;
@@ -15,10 +18,8 @@ weather.temperature = {
     unit : "celcius"
 }
 
-//kelvin to celcius
-weather.temperature.value = 300 - 273;
 
-//check if browser supports geolocation
+//Check if browser supports geolocation
 if('geolocation' in navigator){
     navigator.geolocation.getCurrentPosition(setPosition, showError);
 }else{
@@ -32,6 +33,7 @@ function setPosition(position){
     let longitude = position.coords.longitude;
 
     getWeather(latitude, longitude);
+    getForecast(latitude, longitude);
 }
 
 //SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
@@ -61,6 +63,31 @@ function getWeather(latitude, longitude){
         });
 }
 
+//GET 5 DAY / 3 HOUR FORECAST FROM API
+function getForecast(latitude, longitude){
+    let api = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
+
+    var forecastListTemp = [];
+    var forecastListIcon = [];
+
+    fetch(api)
+        .then(function(response){
+            let data = response.json();
+            return data;
+        })
+        .then(function(data){
+            for (int i = 0; i > 39; i ++){
+            forecast.temperature.value = Math.floor(data[i].main.temp - KELVIN);
+            forecast.iconId = data[i].weather[0].icon;
+            return forecastListTemp[i], forecastListIcon[i];
+            }
+
+        })
+        .then(function(data){
+            console.log(data);
+        });
+}
+
 // DISPLAY WEATHER TO UI
 function displayWeather(){
     iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
@@ -69,10 +96,24 @@ function displayWeather(){
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }
 
+// DISPLAY FORECAST TO UI
+function displayForecast(){
+    foreTempElement.innerHTML = `${forecast.temperature.value}°<span>c</span>`;
+    foreIconElement.innerHTML = `<img src="icons/${forecast.iconId}.png"/>`;
+
+}
+
 // TIME AND DATE SETUP
-var today = new Date();
-var date = today.getFullYear() + '|' + (today.getMonth() + 1) + '|' + today.getDate();
-var time = today.getHours() + "|" + today.getMinutes();
-var dateTime = date + ' ' + time;
-document.getElementById('date').innerHTML = date;
-document.getElementById('time').innerHTML = time;
+function updateClock() {
+
+    var today = new Date();
+    var date = today.getFullYear() + '|' + (today.getMonth() + 1) + '|' + today.getDate();
+    var time = today.getHours() + "|" + today.getMinutes();
+    var dateTime = date + ' ' + time;
+    document.getElementById('date').innerHTML = date;
+    document.getElementById('time').innerHTML = time;
+
+    setTimeout(updateClock, 1000);
+}
+updateClock();
+
