@@ -14,6 +14,8 @@ const key = "8827c126650cab89acad3db4b1e8917c";
 
 const weather = {};
 
+const forecast = {};
+
 weather.temperature = {
     unit : "celcius"
 }
@@ -67,24 +69,18 @@ function getWeather(latitude, longitude){
 function getForecast(latitude, longitude){
     let api = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
-    var forecastListTemp = [];
-    var forecastListIcon = [];
-
     fetch(api)
         .then(function(response){
             let data = response.json();
             return data;
         })
-        .then(function(data){
-            for (int i = 0; i > 39; i ++){
-            forecast.temperature.value = Math.floor(data[i].main.temp - KELVIN);
-            forecast.iconId = data[i].weather[0].icon;
-            return forecastListTemp[i], forecastListIcon[i];
-            }
-
+        .then(function(data){       
+            forecast.temperature.value = Math.floor(list[0].main.temp - KELVIN);
+            forecast.iconId = list[0].weather[0].icon;
+            
         })
-        .then(function(data){
-            console.log(data);
+        .then(function(){
+            displayForecast();
         });
 }
 
