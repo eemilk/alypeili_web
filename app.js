@@ -1,10 +1,21 @@
+//Current weather setup
 const tempElement = document.querySelector(".temperature-value p");
 const locationElement = document.querySelector(".location p");
 const iconElement = document.querySelector(".weather-icon");
 const descElement = document.querySelector(".temperature-description p");
 
-const foreTempElement = document.querySelector(".fore-temperature-value p");
-const foreIconElement = document.querySelector(".fore-weather-icon");
+//Forecast display setup
+const foreTempElement1 = document.querySelector(".fore-temperature-value1 p");
+const foreIconElement1 = document.querySelector(".fore-weather-icon1");
+const foreTempElement2 = document.querySelector(".fore-temperature-value2 p");
+const foreIconElement2 = document.querySelector(".fore-weather-icon2");
+const foreTempElement3 = document.querySelector(".fore-temperature-value3 p");
+const foreIconElement3 = document.querySelector(".fore-weather-icon3");
+const foreTempElement4 = document.querySelector(".fore-temperature-value4 p");
+const foreIconElement4 = document.querySelector(".fore-weather-icon4");
+const foreTempElement5 = document.querySelector(".fore-temperature-value5 p");
+const foreIconElement5 = document.querySelector(".fore-weather-icon5");
+
 
 
 // APP CONSTANTS AND VARS
@@ -14,9 +25,25 @@ const key = "8827c126650cab89acad3db4b1e8917c";
 
 const weather = {};
 
-const forecast = {};
+const forecast1 = {};
+const forecast2 = {};
+const forecast3 = {};
+const forecast4 = {};
+const forecast5 = {};
 
-forecast.temperature = {
+forecast1.temperature = {
+    unit : "celcius"
+}
+forecast2.temperature = {
+    unit : "celcius"
+}
+forecast3.temperature = {
+    unit : "celcius"
+}
+forecast4.temperature = {
+    unit : "celcius"
+}
+forecast5.temperature = {
     unit : "celcius"
 }
 weather.temperature = {
@@ -77,10 +104,21 @@ function getForecast(latitude, longitude){
             let data = response.json();
             return data;
         })
-        .then(function(data){       
-            forecast.temperature.value = Math.floor(data.list[6].main.temp - KELVIN);
-            forecast.iconId = data.list[6].weather[0].icon;
-            
+        .then(function(data){
+                forecast1.temperature.value = Math.floor(data.list[7].main.temp - KELVIN);
+                forecast1.iconId = data.list[7].weather[0].icon;
+                
+                forecast2.temperature.value = Math.floor(data.list[15].main.temp - KELVIN);
+                forecast2.iconId = data.list[15].weather[0].icon;     
+
+                forecast3.temperature.value = Math.floor(data.list[23].main.temp - KELVIN);
+                forecast3.iconId = data.list[23].weather[0].icon;     
+
+                forecast4.temperature.value = Math.floor(data.list[31].main.temp - KELVIN);
+                forecast4.iconId = data.list[31].weather[0].icon;     
+
+                forecast5.temperature.value = Math.floor(data.list[39].main.temp - KELVIN);
+                forecast5.iconId = data.list[39].weather[0].icon;     
         })
         .then(function(){
             displayForecast();
@@ -97,8 +135,20 @@ function displayWeather(){
 
 // DISPLAY FORECAST TO UI
 function displayForecast(){
-    foreTempElement.innerHTML = `${forecast.temperature.value}°<span>c</span>`;
-    foreIconElement.innerHTML = `<img src="icons/${forecast.iconId}.png"/>`;
+    foreTempElement1.innerHTML = `${forecast1.temperature.value}°<span>c</span>`;
+    foreIconElement1.innerHTML = `<img src="icons/${forecast1.iconId}.png"/>`;
+
+    foreTempElement2.innerHTML = `${forecast2.temperature.value}°<span>c</span>`;
+    foreIconElement2.innerHTML = `<img src="icons/${forecast2.iconId}.png"/>`;
+
+    foreTempElement3.innerHTML = `${forecast3.temperature.value}°<span>c</span>`;
+    foreIconElement3.innerHTML = `<img src="icons/${forecast3.iconId}.png"/>`;
+
+    foreTempElement4.innerHTML = `${forecast4.temperature.value}°<span>c</span>`;
+    foreIconElement4.innerHTML = `<img src="icons/${forecast4.iconId}.png"/>`;
+
+    foreTempElement5.innerHTML = `${forecast5.temperature.value}°<span>c</span>`;
+    foreIconElement5.innerHTML = `<img src="icons/${forecast5.iconId}.png"/>`;
 
 }
 

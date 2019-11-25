@@ -94,23 +94,112 @@ body {
   font-size: 26pt;
 }
 
-.fore-temperature-value p{
+.fore-temperature-value1{
+  width: 300px;
+  height:30px;
+}
+
+.fore-temperature-value1 p{
   margin: 0;
   padding: 0;
   color: #ffffff;
   text-align: center;
 }
 
-.fore-temperature-value span{
+.fore-temperature-value1 span{
 
 }
 
-.fore-weather-icon {
+.fore-weather-icon1 {
   width: 300px;
   height: 128px;
 }
 
-.fore-weather-icon img{
+.fore-weather-icon1 img{
+  display: block;
+  margin: 0 auto;
+}
+
+.fore-temperature-value2 p{
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.fore-temperature-value2 span{
+
+}
+
+.fore-weather-icon2 {
+  width: 300px;
+  height: 128px;
+}
+
+.fore-weather-icon2 img{
+  display: block;
+  margin: 0 auto;
+}
+
+.fore-temperature-value3 p{
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.fore-temperature-value3 span{
+
+}
+
+.fore-weather-icon3 {
+  width: 300px;
+  height: 128px;
+}
+
+.fore-weather-icon3 img{
+  display: block;
+  margin: 0 auto;
+}
+
+.fore-temperature-value4 p{
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.fore-temperature-value4 span{
+
+}
+
+.fore-weather-icon4 {
+  width: 300px;
+  height: 128px;
+}
+
+.fore-weather-icon4 img{
+  display: block;
+  margin: 0 auto;
+}
+
+.fore-temperature-value5 p{
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.fore-temperature-value5 span{
+
+}
+
+.fore-weather-icon5 {
+  width: 300px;
+  height: 128px;
+}
+
+.fore-weather-icon5 img{
   display: block;
   margin: 0 auto;
 }
