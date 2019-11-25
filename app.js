@@ -16,6 +16,9 @@ const weather = {};
 
 const forecast = {};
 
+forecast.temperature = {
+    unit : "celcius"
+}
 weather.temperature = {
     unit : "celcius"
 }
@@ -75,8 +78,8 @@ function getForecast(latitude, longitude){
             return data;
         })
         .then(function(data){       
-            forecast.temperature.value = Math.floor(list[0].main.temp - KELVIN);
-            forecast.iconId = list[0].weather[0].icon;
+            forecast.temperature.value = Math.floor(data.list[6].main.temp - KELVIN);
+            forecast.iconId = data.list[6].weather[0].icon;
             
         })
         .then(function(){
