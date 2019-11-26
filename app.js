@@ -52,27 +52,28 @@ weather.temperature = {
 
 
 //Check if browser supports geolocation
-if('geolocation' in navigator){
+/*if('geolocation' in navigator){
     navigator.geolocation.getCurrentPosition(setPosition, showError);
 }else{
     notificationElement.style.display = "block";
     console.log("Error. Cant access location.");
-}
+}*/
 
 // SET USERS POSITION
-function setPosition(position){
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
+function setPosition(){
+    let latitude = 65;
+    let longitude = 25.5;
 
     getWeather(latitude, longitude);
     getForecast(latitude, longitude);
 }
+setPosition();
 
 //SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
-function showError(error){
+/*function showError(error){
     notificationElement.style.display = "block";
     console.log("Error. Cant access location.");
-}
+}*/
 
 // GET WEATHER FROM API PROVIDER
 function getWeather(latitude, longitude){
