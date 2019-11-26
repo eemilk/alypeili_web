@@ -1,10 +1,10 @@
-//Current weather setup
+//Current weather display css setup
 const tempElement = document.querySelector(".temperature-value p");
 const locationElement = document.querySelector(".location p");
 const iconElement = document.querySelector(".weather-icon");
 const descElement = document.querySelector(".temperature-description p");
 
-//Forecast display setup
+//Forecast display css setup
 const foreTempElement1 = document.querySelector(".fore-temperature-value1 p");
 const foreIconElement1 = document.querySelector(".fore-weather-icon1");
 const foreTempElement2 = document.querySelector(".fore-temperature-value2 p");
@@ -52,7 +52,8 @@ weather.temperature = {
 
 
 //Check if browser supports geolocation
-/*if('geolocation' in navigator){
+/********                               This feature is now disabled when using static location data
+if('geolocation' in navigator){
     navigator.geolocation.getCurrentPosition(setPosition, showError);
 }else{
     notificationElement.style.display = "block";
@@ -61,8 +62,8 @@ weather.temperature = {
 
 // SET USERS POSITION
 function setPosition(){
-    let latitude = 65;
-    let longitude = 25.5;
+    let latitude = 65;                  //Using static location data now so theres no parameters
+    let longitude = 25.5;               //Using static location data now so theres no parameters
 
     getWeather(latitude, longitude);
     getForecast(latitude, longitude);
@@ -70,7 +71,8 @@ function setPosition(){
 setPosition();
 
 //SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
-/*function showError(error){
+/********   This feature is now disabled when using static location data
+function showError(error){
     notificationElement.style.display = "block";
     console.log("Error. Cant access location.");
 }*/
@@ -96,7 +98,7 @@ function getWeather(latitude, longitude){
         });
 }
 
-//GET 5 DAY / 3 HOUR FORECAST FROM API
+//GET 5DAY 3HOUR FORECAST FROM API
 function getForecast(latitude, longitude){
     let api = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
@@ -150,7 +152,6 @@ function displayForecast(){
 
     foreTempElement5.innerHTML = `${forecast5.temperature.value}°<span>c</span>`;
     foreIconElement5.innerHTML = `<img src="icons/${forecast5.iconId}.png"/>`;
-
 }
 
 // TIME AND DATE SETUP
@@ -175,8 +176,8 @@ function updateClock() {
     var currentWeekday = weekday[today.getDay()];
     document.getElementById('currentWeekday').innerHTML = currentWeekday;
 
-    //forecast weekdays display
-    var foreday = new Array(14);
+    //Forecast weekdays display and logic
+    var foreday = new Array(12);
     foreday[0] = "sun";
     foreday[1] = "mon";
     foreday[2] = "tue";
@@ -189,8 +190,6 @@ function updateClock() {
     foreday[9] = "tue";
     foreday[10] = "wed";
     foreday[11] = "thu";
-    foreday[12] = "fri";
-    foreday[13] = "sat";
 
     var foreday1 = foreday[today.getDay() + 1];
     var foreday2 = foreday[today.getDay() + 2];
@@ -206,5 +205,5 @@ function updateClock() {
 
     setTimeout(updateClock, 1000);
 }
-updateClock();
 
+updateClock();
