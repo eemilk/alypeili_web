@@ -162,6 +162,47 @@ function updateClock() {
     document.getElementById('date').innerHTML = date;
     document.getElementById('time').innerHTML = time;
 
+    //current weekday display
+    var weekday = new Array(7);
+    weekday[0] = "sunday";
+    weekday[1] = "monday";
+    weekday[2] = "tuesday";
+    weekday[3] = "wednesday";
+    weekday[4] = "thursday";
+    weekday[5] = "friday";
+    weekday[6] = "saturday";
+    var currentWeekday = weekday[today.getDay()];
+    document.getElementById('currentWeekday').innerHTML = currentWeekday;
+
+    //forecast weekdays display
+    var foreday = new Array(14);
+    foreday[0] = "sun";
+    foreday[1] = "mon";
+    foreday[2] = "tue";
+    foreday[3] = "wed";
+    foreday[4] = "thu";
+    foreday[5] = "fri";
+    foreday[6] = "sat";
+    foreday[7] = "sun";
+    foreday[8] = "mon";
+    foreday[9] = "tue";
+    foreday[10] = "wed";
+    foreday[11] = "thu";
+    foreday[12] = "fri";
+    foreday[13] = "sat";
+
+    var foreday1 = foreday[today.getDay() + 1];
+    var foreday2 = foreday[today.getDay() + 2];
+    var foreday3 = foreday[today.getDay() + 3];
+    var foreday4 = foreday[today.getDay() + 4];
+    var foreday5 = foreday[today.getDay() + 5];
+
+    document.getElementById('foreday1').innerHTML = foreday1;
+    document.getElementById('foreday2').innerHTML = foreday2;
+    document.getElementById('foreday3').innerHTML = foreday3;
+    document.getElementById('foreday4').innerHTML = foreday4;
+    document.getElementById('foreday5').innerHTML = foreday5;
+
     setTimeout(updateClock, 1000);
 }
 updateClock();

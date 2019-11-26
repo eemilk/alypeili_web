@@ -111,13 +111,15 @@ body {
 }
 
 .fore-weather-icon1 {
-  width: 300px;
-  height: 128px;
+  width: 150px;
+  height: 80px;
 }
 
 .fore-weather-icon1 img{
   display: block;
   margin: 0 auto;
+  width: 50%;
+  height: auto;
 }
 
 .fore-temperature-value2 p{
@@ -132,13 +134,15 @@ body {
 }
 
 .fore-weather-icon2 {
-  width: 300px;
-  height: 128px;
+  width: 150px;
+  height: 80px;
 }
 
 .fore-weather-icon2 img{
   display: block;
   margin: 0 auto;
+  width: 50%;
+  height: auto;
 }
 
 .fore-temperature-value3 p{
@@ -153,13 +157,15 @@ body {
 }
 
 .fore-weather-icon3 {
-  width: 300px;
-  height: 128px;
+  width: 150px;
+  height: 80px;
 }
 
 .fore-weather-icon3 img{
   display: block;
   margin: 0 auto;
+  width: 50%;
+  height: auto;
 }
 
 .fore-temperature-value4 p{
@@ -174,13 +180,15 @@ body {
 }
 
 .fore-weather-icon4 {
-  width: 300px;
-  height: 128px;
+  width: 150px;
+  height: 80px;
 }
 
 .fore-weather-icon4 img{
   display: block;
   margin: 0 auto;
+  width: 50%;
+  height: auto;
 }
 
 .fore-temperature-value5 p{
@@ -195,11 +203,13 @@ body {
 }
 
 .fore-weather-icon5 {
-  width: 300px;
-  height: 128px;
+  width: 150px;
+  height: 80px;
 }
 
 .fore-weather-icon5 img{
   display: block;
   margin: 0 auto;
+  width: 50%;
+  height: auto;
 }
