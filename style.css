@@ -11,6 +11,10 @@
 
 }
 
+p {
+   display: inline;
+  }
+
 body {
     background-color: #000000;
     color: #ffffff;

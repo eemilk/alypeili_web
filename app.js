@@ -156,7 +156,7 @@ function displayForecast(){
 function updateClock() {
 
     var today = new Date();
-    var date = today.getFullYear() + '|' + (today.getMonth() + 1) + '|' + today.getDate();
+    var date =  today.getDate() + '|' + (today.getMonth() + 1) + '|' + today.getFullYear();
     var time = today.getHours() + "|" + today.getMinutes();
     var dateTime = date + ' ' + time;
     document.getElementById('date').innerHTML = date;
