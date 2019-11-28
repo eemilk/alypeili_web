@@ -52,7 +52,7 @@ weather.temperature = {
 
 
 //Check if browser supports geolocation
-/********                               This feature is now disabled when using static location data
+/********                               This feature is now disabled while using static location data
 if('geolocation' in navigator){
     navigator.geolocation.getCurrentPosition(setPosition, showError);
 }else{
@@ -71,7 +71,7 @@ function setPosition(){
 setPosition();
 
 //SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
-/********   This feature is now disabled when using static location data
+/********                               This feature is now disabled while using static location data
 function showError(error){
     notificationElement.style.display = "block";
     console.log("Error. Cant access location.");

@@ -42,7 +42,7 @@ body {
 
   .weather-icon{
     width: 300px;
-    height: 128px;
+    height: 100px;
 }
 
 .weather-icon img{
@@ -80,7 +80,7 @@ body {
     margin: 0;
     color: #ffffff;
     text-align: center;
-    font-size: 26pt;
+    font-size: 16pt;
 }
 
 .location{
@@ -96,6 +96,10 @@ body {
 
 .small-font {
   font-size: 26pt;
+}
+
+.desc-font {
+  font-size: 20pt;
 }
 
 .fore-temperature-value1{
