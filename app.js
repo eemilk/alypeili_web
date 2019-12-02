@@ -60,99 +60,107 @@ if('geolocation' in navigator){
     console.log("Error. Cant access location.");
 }*/
 
-// SET USERS POSITION
-function setPosition(){
-    let latitude = 65;                  //Using static location data now so theres no parameters
-    let longitude = 25.5;               //Using static location data now so theres no parameters
+//
+function updateWeather()
+{
+    // SET USERS POSITION
+    function setPosition(){
+        let latitude = 65;                  //Using static location data now so theres no parameters
+        let longitude = 25.5;               //Using static location data now so theres no parameters
 
-    getWeather(latitude, longitude);
-    getForecast(latitude, longitude);
+        getWeather(latitude, longitude);
+        getForecast(latitude, longitude);
+    }
+    setPosition();
+
+    //SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
+    /********                               This feature is now disabled while using static location data
+    function showError(error){
+        notificationElement.style.display = "block";
+        console.log("Error. Cant access location.");
+    }*/
+
+    // GET WEATHER FROM API PROVIDER
+    function getWeather(latitude, longitude){
+        let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+
+        fetch(api)
+            .then(function(response){
+                let data = response.json();
+                return data;
+            })
+            .then(function(data){
+                weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+                weather.description = data.weather[0].description;
+                weather.iconId = data.weather[0].icon;
+                weather.city = data.name.toLowerCase();
+                weather.country = data.sys.country.toLowerCase();
+            })
+            .then(function(){
+                displayWeather();
+            });
+    }
+
+    //GET 5DAY 3HOUR FORECAST FROM API
+    function getForecast(latitude, longitude){
+        let api = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
+
+        fetch(api)
+            .then(function(response){
+                let data = response.json();
+                return data;
+            })
+            .then(function(data){
+                    forecast1.temperature.value = Math.floor(data.list[7].main.temp - KELVIN);
+                    forecast1.iconId = data.list[7].weather[0].icon;
+                    
+                    forecast2.temperature.value = Math.floor(data.list[15].main.temp - KELVIN);
+                    forecast2.iconId = data.list[15].weather[0].icon;     
+
+                    forecast3.temperature.value = Math.floor(data.list[23].main.temp - KELVIN);
+                    forecast3.iconId = data.list[23].weather[0].icon;     
+
+                    forecast4.temperature.value = Math.floor(data.list[31].main.temp - KELVIN);
+                    forecast4.iconId = data.list[31].weather[0].icon;     
+
+                    forecast5.temperature.value = Math.floor(data.list[39].main.temp - KELVIN);
+                    forecast5.iconId = data.list[39].weather[0].icon;     
+            })
+            .then(function(){
+                displayForecast();
+            });
+    }
+
+    // DISPLAY WEATHER TO UI
+    function displayWeather(){
+        iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
+        tempElement.innerHTML = `${weather.temperature.value}°<span>c</span>`;
+        descElement.innerHTML = weather.description;
+        locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+    }
+
+    // DISPLAY FORECAST TO UI
+    function displayForecast(){
+        foreTempElement1.innerHTML = `${forecast1.temperature.value}°<span>c</span>`;
+        foreIconElement1.innerHTML = `<img src="icons/${forecast1.iconId}.png"/>`;
+
+        foreTempElement2.innerHTML = `${forecast2.temperature.value}°<span>c</span>`;
+        foreIconElement2.innerHTML = `<img src="icons/${forecast2.iconId}.png"/>`;
+
+        foreTempElement3.innerHTML = `${forecast3.temperature.value}°<span>c</span>`;
+        foreIconElement3.innerHTML = `<img src="icons/${forecast3.iconId}.png"/>`;
+
+        foreTempElement4.innerHTML = `${forecast4.temperature.value}°<span>c</span>`;
+        foreIconElement4.innerHTML = `<img src="icons/${forecast4.iconId}.png"/>`;
+
+        foreTempElement5.innerHTML = `${forecast5.temperature.value}°<span>c</span>`;
+        foreIconElement5.innerHTML = `<img src="icons/${forecast5.iconId}.png"/>`;
+    }
+
+    setTimeout(updateWeather, 1800000); // refresh weather every 30min
 }
-setPosition();
 
-//SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
-/********                               This feature is now disabled while using static location data
-function showError(error){
-    notificationElement.style.display = "block";
-    console.log("Error. Cant access location.");
-}*/
-
-// GET WEATHER FROM API PROVIDER
-function getWeather(latitude, longitude){
-    let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
-
-    fetch(api)
-        .then(function(response){
-            let data = response.json();
-            return data;
-        })
-        .then(function(data){
-            weather.temperature.value = Math.floor(data.main.temp - KELVIN);
-            weather.description = data.weather[0].description;
-            weather.iconId = data.weather[0].icon;
-            weather.city = data.name.toLowerCase();
-            weather.country = data.sys.country.toLowerCase();
-        })
-        .then(function(){
-            displayWeather();
-        });
-}
-
-//GET 5DAY 3HOUR FORECAST FROM API
-function getForecast(latitude, longitude){
-    let api = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
-
-    fetch(api)
-        .then(function(response){
-            let data = response.json();
-            return data;
-        })
-        .then(function(data){
-                forecast1.temperature.value = Math.floor(data.list[7].main.temp - KELVIN);
-                forecast1.iconId = data.list[7].weather[0].icon;
-                
-                forecast2.temperature.value = Math.floor(data.list[15].main.temp - KELVIN);
-                forecast2.iconId = data.list[15].weather[0].icon;     
-
-                forecast3.temperature.value = Math.floor(data.list[23].main.temp - KELVIN);
-                forecast3.iconId = data.list[23].weather[0].icon;     
-
-                forecast4.temperature.value = Math.floor(data.list[31].main.temp - KELVIN);
-                forecast4.iconId = data.list[31].weather[0].icon;     
-
-                forecast5.temperature.value = Math.floor(data.list[39].main.temp - KELVIN);
-                forecast5.iconId = data.list[39].weather[0].icon;     
-        })
-        .then(function(){
-            displayForecast();
-        });
-}
-
-// DISPLAY WEATHER TO UI
-function displayWeather(){
-    iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
-    tempElement.innerHTML = `${weather.temperature.value}°<span>c</span>`;
-    descElement.innerHTML = weather.description;
-    locationElement.innerHTML = `${weather.city}, ${weather.country}`;
-}
-
-// DISPLAY FORECAST TO UI
-function displayForecast(){
-    foreTempElement1.innerHTML = `${forecast1.temperature.value}°<span>c</span>`;
-    foreIconElement1.innerHTML = `<img src="icons/${forecast1.iconId}.png"/>`;
-
-    foreTempElement2.innerHTML = `${forecast2.temperature.value}°<span>c</span>`;
-    foreIconElement2.innerHTML = `<img src="icons/${forecast2.iconId}.png"/>`;
-
-    foreTempElement3.innerHTML = `${forecast3.temperature.value}°<span>c</span>`;
-    foreIconElement3.innerHTML = `<img src="icons/${forecast3.iconId}.png"/>`;
-
-    foreTempElement4.innerHTML = `${forecast4.temperature.value}°<span>c</span>`;
-    foreIconElement4.innerHTML = `<img src="icons/${forecast4.iconId}.png"/>`;
-
-    foreTempElement5.innerHTML = `${forecast5.temperature.value}°<span>c</span>`;
-    foreIconElement5.innerHTML = `<img src="icons/${forecast5.iconId}.png"/>`;
-}
+updateWeather();
 
 // TIME AND DATE SETUP
 function updateClock() {

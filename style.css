@@ -41,8 +41,8 @@ body {
   }
 
   .weather-icon{
-    width: 300px;
-    height: 100px;
+    width: 250px;
+    height: 80px;
 }
 
 .weather-icon img{
@@ -222,4 +222,13 @@ body {
   margin: 0 auto;
   width: 40%;
   height: auto;
+}
+
+.bottom {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  font-size: 28pt;
 }
