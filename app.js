@@ -218,99 +218,99 @@ function updateClock() {
     document.getElementById('foreday4').innerHTML = foreday4;
     document.getElementById('foreday5').innerHTML = foreday5;
 
+    //Function to check holiday
+    function checkHoliday()
+    {
+        if (dateHoliday == 1.1)
+        {
+            console.log('uudenvuodenpaiva');
+            holidayGreeting.innerHTML = "hyvää uutta vuotta!";
+        }
+        else if (dateHoliday == 6.1)
+        {
+            console.log('loppiainen');
+            holidayGreeting.innerHTML = "hyvää loppiaista!";
+        }
+        else if (dateHoliday == 5.2)
+        {
+            console.log('runeberginpaiva');
+            holidayGreeting.innerHTML = "hyvää runebergin päivää!";
+        }
+        else if (dateHoliday == 14.2)
+        {
+            console.log('ystavanpaiva');
+            holidayGreeting.innerHTML = "hyvää ystävänpäivää!";
+        }
+        else if (dateHoliday == 1.5)
+        {
+            console.log('vappu');
+            holidayGreeting.innerHTML = "hyvää vappua!";
+        }
+        else if (dateHoliday == 24.6)
+        {
+            console.log('juhannus');
+            holidayGreeting.innerHTML = "hyvää juhannusta!";
+        }
+        else if (dateHoliday == 1.11)
+        {
+            console.log('pyhainpaiva');
+            holidayGreeting.innerHTML = "hyvää pyhäinpäivää";
+        }
+        else if (dateHoliday == 6.12)
+        {
+            console.log('itsenaisyyspaiva');
+            holidayGreeting.innerHTML = "hyvää itsenäisyyspäivää!";
+        }
+        else if (dateHoliday == 24.12)
+        {
+            console.log('jouluaatto');
+            holidayGreeting.innerHTML = "hyvää joulua!";
+        }
+        else if (dateHoliday == 25.12)
+        {
+            console.log('joulupäivä');
+            holidayGreeting.innerHTML = "hyvää joulua!";
+        }
+        else if (dateHoliday == 26.12)
+        {
+            console.log('tapaninpaiva');
+            holidayGreeting.innerHTML = "hyvää joulua!";
+        }
+        else if (dateHoliday == 31.12)
+        {
+            console.log('uudenvuodenaatto');
+            holidayGreeting.innerHTML = "hyvää uudenvuoden aattoa!";
+        }
+    }
+    checkHoliday();
+
+    // Function to adjust greeting based on hour
+    function displayGreeting()
+    {
+        if (hour >= 5 && hour <= 9)
+        {
+            hourGreeting.innerHTML = "good morning";
+        }
+        else if (hour >= 9 && hour <= 14)
+        {
+            hourGreeting.innerHTML = "have a good day";
+        }
+        else if (hour >= 14 && hour <= 18)
+        {
+            hourGreeting.innerHTML = "have a pleasant afternoon";
+        }
+        else if (hour >= 18 && hour <= 22)
+        {
+            hourGreeting.innerHTML = "have a nice evening";
+        }
+        else if (hour >= 22 && hour <= 5)
+        {
+            hourGreeting.innerHTML = "good night";
+        }
+    }
+    displayGreeting();    
+
     setTimeout(updateClock, 1000);
-    return date;
 }
 updateClock();
 
-//Function to check holiday
-function checkHoliday()
-{
-    if (dateHoliday == 1.1)
-    {
-        console.log('uudenvuodenpaiva');
-        holidayGreeting.innerHTML = "hyvää uutta vuotta!";
-    }
-    else if (dateHoliday == 6.1)
-    {
-        console.log('loppiainen');
-        holidayGreeting.innerHTML = "hyvää loppiaista!";
-    }
-    else if (dateHoliday == 5.2)
-    {
-        console.log('runeberginpaiva');
-        holidayGreeting.innerHTML = "hyvää runebergin päivää!";
-    }
-    else if (dateHoliday == 14.2)
-    {
-        console.log('ystavanpaiva');
-        holidayGreeting.innerHTML = "hyvää ystävänpäivää!";
-    }
-    else if (dateHoliday == 1.5)
-    {
-        console.log('vappu');
-        holidayGreeting.innerHTML = "hyvää vappua!";
-    }
-    else if (dateHoliday == 24.6)
-    {
-        console.log('juhannus');
-        holidayGreeting.innerHTML = "hyvää juhannusta!";
-    }
-    else if (dateHoliday == 1.11)
-    {
-        console.log('pyhainpaiva');
-        holidayGreeting.innerHTML = "hyvää pyhäinpäivää";
-    }
-    else if (dateHoliday == 6.12)
-    {
-        console.log('itsenaisyyspaiva');
-        holidayGreeting.innerHTML = "hyvää itsenäisyyspäivää!";
-    }
-    else if (dateHoliday == 24.12)
-    {
-        console.log('jouluaatto');
-        holidayGreeting.innerHTML = "hyvää joulua!";
-    }
-    else if (dateHoliday == 25.12)
-    {
-        console.log('joulupäivä');
-        holidayGreeting.innerHTML = "hyvää joulua!";
-    }
-    else if (dateHoliday == 26.12)
-    {
-        console.log('tapaninpaiva');
-        holidayGreeting.innerHTML = "hyvää joulua!";
-    }
-    else if (dateHoliday == 31.12)
-    {
-        console.log('uudenvuodenaatto');
-        holidayGreeting.innerHTML = "hyvää uudenvuoden aattoa!";
-    }
-}
-checkHoliday();
-
-// Function to adjust greeting based on hour
-function displayGreeting()
-{
-    if (hour >= 5 && hour <= 9)
-    {
-        hourGreeting.innerHTML = "good morning";
-    }
-    else if (hour >= 9 && hour <= 14)
-    {
-        hourGreeting.innerHTML = "have a good day";
-    }
-    else if (hour >= 14 && hour <= 18)
-    {
-        hourGreeting.innerHTML = "have a pleasant afternoon";
-    }
-    else if (hour >= 18 && hour <= 22)
-    {
-        hourGreeting.innerHTML = "have a nice evening";
-    }
-    else if (hour >= 22 && hour <= 5)
-    {
-        hourGreeting.innerHTML = "good night";
-    }
-}
-displayGreeting();
