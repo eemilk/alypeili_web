@@ -2,9 +2,9 @@
 $servername = "databasepeili.c1emz48wiw83.us-east-1.rds.amazonaws.com";
 $username = "admin";
 $password = "alypeili";
-$dbname = "alypeili";
+#$dbname = "alypeili";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
