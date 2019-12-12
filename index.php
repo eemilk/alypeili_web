@@ -11,6 +11,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$sql = "SELECT * FROM weather ORDER BY wid DESC limit 5";
+$result = mysqli_query($query);
+$row = mysqli_fetch_assoc($result);
+
+echo $row['temperature'];
 
 ?>
 <!DOCTYPE html>
