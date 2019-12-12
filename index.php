@@ -10,11 +10,6 @@ if ($conn->connect_error) {
 }
 
 $query = "SELECT * FROM innodb.weather ORDER BY wid DESC limit 1";
-$query = "SELECT `temperature` FROM `wid`";
-
-$result = $mysqli->query($query);
-$row = $result->fetch_assoc();
-echo $row["temperature"];
 
 ?>
 <!DOCTYPE html>
