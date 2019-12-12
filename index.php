@@ -9,6 +9,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$field1 = $mysqli->real_escape_string($_POST['field1']);
+/*
 mysqli_select_db($con,"ajax_demo");
 $sql="SELECT temperature * FROM TABLE weather";
 $result = mysqli_query($con,$sql);
@@ -18,7 +20,7 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 
 mysql_free_result($result);
-
+*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +48,10 @@ mysql_free_result($result);
                                 <p> - </p>
 
                             </div> <br>
-                        21°c<br>
+                            <form action="insert.php" method="post">
+                                Value1: <input type="text" name = "field1" /><br/>
+                                <input type="submit" />
+                            </form>°c<br>
                         <div class="desc-font">indoors</div>                   
 
                         
