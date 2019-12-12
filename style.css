@@ -46,6 +46,7 @@ body {
 }
 
 .weather-icon img{
+    padding: 5pt;
     display: block;
     margin: 0 auto;
     width: 35%;
