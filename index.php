@@ -49,8 +49,7 @@ if ($conn->connect_error) {
                                         echo $row['temperature'];
                                     }
                                 }
-                                ?>
-                                °c<br>
+                                ?>°c<br>
                         <div class="desc-font">indoors</div>                   
 
                         
