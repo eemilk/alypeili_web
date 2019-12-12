@@ -27,7 +27,7 @@ if ($conn->connect_error) {
                     <center><p id='time'></p><br>
                         <div class="location">
                             <p>-</p>
-                        </div><br><br><br>
+                        </div><br><br>
                             <div class="temperature-value"><p>- °<span>c</span></p>
                             </div>
                             <br>
