@@ -37,7 +37,7 @@ if ($conn->connect_error) {
                             <div class="temperature-description">
                                 <p> - </p>
 
-                            </div> <br><br>
+                            </div> <br><br><br>
                             <?php
                                 $sql = "SELECT * FROM weather ORDER BY wid DESC limit 1";
                                 $result = mysqli_query($conn, $sql);
