@@ -2,17 +2,15 @@
 $servername = "databasepeili.c1emz48wiw83.us-east-1.rds.amazonaws.com";
 $username = "admin";
 $password = "alypeili";
+$dbname = "innodb";
 
-$conn = new mysqli($servername, $username, $password);
+
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$query = "SELECT * FROM innodb.weather ORDER BY wid DESC limit 1";
-$result = $mysqli->query($query);
-$row = $result->fetch_assoc();
-echo $row["wid"];
 
 ?>
 <!DOCTYPE html>
