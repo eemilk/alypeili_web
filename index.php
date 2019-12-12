@@ -8,9 +8,9 @@ $conn = new mysqli($servername, $username, $password);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-$field1 = $mysqli->real_escape_string($_POST['field1']);
 /*
+$field1 = $mysqli->real_escape_string($_POST['field1']);
+
 mysqli_select_db($con,"ajax_demo");
 $sql="SELECT temperature * FROM TABLE weather";
 $result = mysqli_query($con,$sql);
