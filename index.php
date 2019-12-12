@@ -8,19 +8,14 @@ $conn = new mysqli($servername, $username, $password);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-/*
-$field1 = $mysqli->real_escape_string($_POST['field1']);
 
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT temperature * FROM TABLE weather";
-$result = mysqli_query($con,$sql);
+$query = "SELECT * FROM innodb.weather ORDER BY wid DESC limit 1";
+$query = "SELECT `temperature` FROM `wid`";
 
-while ($row = mysql_fetch_assoc($result)) {
-    echo $row['temperature'];
-}
+$result = $mysqli->query($query);
+$row = $result->fetch_assoc();
+echo $row["temperature"];
 
-mysql_free_result($result);
-*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,10 +43,7 @@ mysql_free_result($result);
                                 <p> - </p>
 
                             </div> <br>
-                            <form action="insert.php" method="post">
-                                Value1: <input type="text" name = "field1" /><br/>
-                                <input type="submit" />
-                            </form>°c<br>
+                            °c<br>
                         <div class="desc-font">indoors</div>                   
 
                         
