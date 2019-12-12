@@ -10,7 +10,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +48,7 @@ if ($conn->connect_error) {
                                         echo $row['temperature'];
                                     }
                                 }
-                                ?>°c<br>
+                            ?>°c<br>
                         <div class="desc-font">indoors</div>                   
 
                         
