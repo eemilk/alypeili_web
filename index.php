@@ -32,7 +32,7 @@ if ($conn->connect_error) {
                             </div>
 
                             <div class="weather-icon">
-                                <img src="icons/unknown.png" alt="">
+                                <img src="icons2/unknown.png" alt="">
                             </div> 
                             <div class="temperature-description">
                                 <p> - </p>
