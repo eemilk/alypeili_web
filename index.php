@@ -11,13 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT temperature FROM weather ORDER BY wid DESC limit 1";
-$result = mysqli_query($conn,$query); 
-    while ($row = mysqli_fetch_array($result)) {
-        echo $row['temperature'];
-    }
 ?>
-<!--
+
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +39,18 @@ $result = mysqli_query($conn,$query);
                                 <p> - </p>
 
                             </div> <br>
-                            °c<br>
+                            <?php
+                                $sql = "SELECT * FROM weather ORDER BY wid DESC limit 1";
+                                $result = mysqli_query($conn, $sql);
+                                $resultCheck = mysqli_num_rows($result);
+
+                                if ($resultCheck > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo $row['temperature'];
+                                    }
+                                }
+                                ?>
+                                °c<br>
                         <div class="desc-font">indoors</div>                   
 
                         
