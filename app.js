@@ -135,7 +135,7 @@ function updateWeather()
 
     // DISPLAY WEATHER TO UI
     function displayWeather(){
-        iconElement.innerHTML = `<img src="var/www/html/kayttoliittyma/icons/${weather.iconId}.png"/>`;
+        iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
         tempElement.innerHTML = `${weather.temperature.value}°<span>c</span>`;
         descElement.innerHTML = weather.description;
         locationElement.innerHTML = `${weather.city}, ${weather.country}`;
@@ -144,7 +144,7 @@ function updateWeather()
     // DISPLAY FORECAST TO UI
     function displayForecast(){
         foreTempElement1.innerHTML = `${forecast1.temperature.value}°<span>c</span>`;
-        foreIconElement1.innerHTML = `<img src="var/www/html/kayttoliittyma/icons/${forecast1.iconId}.png"/>`;
+        foreIconElement1.innerHTML = `<img src="icons/${forecast1.iconId}.png"/>`;
 
         foreTempElement2.innerHTML = `${forecast2.temperature.value}°<span>c</span>`;
         foreIconElement2.innerHTML = `<img src="icons/${forecast2.iconId}.png"/>`;
